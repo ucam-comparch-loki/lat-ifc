@@ -1,6 +1,9 @@
 #include <stdbool.h>
 #include "types.h"
 
+#ifndef LAT_IFC_RUN_H
+#define LAT_IFC_RUN_H
+
 // Accelerate the specified computation on the Loki Accelerator Template.
 // Computation proceeds asynchronously - this core can continue to do other work
 // and call `lat_sync` or `lat_poll` when ready to use the result.
@@ -21,3 +24,5 @@ bool lat_poll(const lat_parameters_t* params);
 // Useful for debugging and benchmarking, though it will not be as efficient as
 // executing native code.
 void lat_compare(const lat_parameters_t* params);
+
+#endif // include guard

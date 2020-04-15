@@ -2,8 +2,8 @@
 //
 // TODO: generalise from convolution to a nested loop.
 
-#ifndef ACCELERATOR_TYPES_H
-#define ACCELERATOR_TYPES_H
+#ifndef LAT_IFC_TYPES_H
+#define LAT_IFC_TYPES_H
 
 typedef int32_t data_t;
 
@@ -81,4 +81,4 @@ typedef struct {
   uint32_t notificationAddress;
 } lat_parameters_t;
 
-#endif
+#endif // include guard
