@@ -6,6 +6,14 @@ By default, this library assumes that Loki has been configured with two cores an
 
 ![](structure.png)
 
+The computation performed is a generic loop nest, where the innermost loop body is a simple multiply-accumulate. The computation takes two inputs and one output, and they may overlap. This is sufficient for convolution and linear/fully-connected neural network layers.
+
+The two innermost loops are parallelised on the PE array:
+* If the accelerator is configured with `--accelerator-broadcast-rows`, the first input should be constant in the penultimate loop
+* If the accelerator is configured with `--accelerator-broadcast-columns`, the second input should be constant in the innermost loop
+
+Additional parallelism may be exploited by using multiple accelerator tiles, and coordinating them in software.
+
 ## Prerequisites
 
 Requires [libloki](https://github.com/ucam-comparch-loki/libloki).

@@ -12,17 +12,12 @@ void lat_accelerate(const lat_parameters_t* params);
 
 // Stall this core until the accelerator signals that it has completed its
 // computation.
-// This core must be the one specified by `notificationAddress` in `params`.
+// This core must be the one specified by `notification_address` in `params`.
 void lat_sync(const lat_parameters_t* params);
 
 // Check whether the accelerator has finished its computation.
 // If so, call `lat_sync` to perform any cleanup.
-// This core must be the one specified by `notificationAddress` in `params`.
+// This core must be the one specified by `notification_address` in `params`.
 bool lat_poll(const lat_parameters_t* params);
-
-// Execute the specified computation on a Loki core.
-// Useful for debugging and benchmarking, though it will not be as efficient as
-// executing native code.
-void lat_compare(const lat_parameters_t* params);
 
 #endif // include guard
